@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}DrinkPink{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/navbar.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/landing_page.css' %}">
+    <!-- css -->
+</head>
+<body>
+    <div class="navbar">
+        <h1>D-Rink</h1>
+        <a href="{% url 'cards' %}">Cards</a>
+        <a href="{% url 'settings' %}">Settings</a>
+    </div>
+
+    <main>
+        {% block content %}
+        <!-- landing page -->
+        {% endblock %}
+    </main>
+</body>
+</html>
