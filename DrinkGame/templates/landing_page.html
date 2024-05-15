@@ -3,6 +3,46 @@
 {% block content %}
     <div id="phase0" class="phase">
         <h1>D-Rink</h1>
-        <button id="step1"><a href="{% url 'phase_one' %}">Continue</a></button>
+        <button id="PZero"><a href="{% url 'phase_one' %}">Continue</a></button>
     </div>
+    <style>
+        #phase0 {
+            background-color: #ef34d6;
+            padding: 50px;
+            text-align: center;
+            font-size: 120px;
+        }
+        h1 {
+            font-family: Impact;
+            transition: transform 1s ease;
+        }
+         h1:hover {
+            color: rgb(167, 206, 241);
+            transform: scale(2);
+         }
+        #PZero {
+            width: 1000px;
+            height: 100px;
+            border-radius: 30px;
+            border: none;
+            transition: 1s ease;
+        }
+        #PZero {
+            width: 500px;
+            height: 100px;
+            border-radius: 30px;
+            border: none;
+            transition: 1s ease;
+        }
+        #PZero:hover {
+            width: 600px;
+            height: 150px;
+        }
+         
+        #PZero a {
+            font-size: 50px;
+            color: #ef34d6;
+            transition: 1s ease;
+        }
+    </style>
 {% endblock %}

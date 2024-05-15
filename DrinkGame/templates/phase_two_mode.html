@@ -19,8 +19,29 @@
         </div>
     </div>
     <button id="step1"><a href="{% url 'phase_three' %}">Continue</a></button>
-
 </body>
+<style>
+    .container {
+        display: flex;
+    }
+
+    .box {
+        width: 50%;
+        height: 200px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 24px;
+    }
+
+    .classic {
+        background-color: #ff9999; /* Light red */
+    }
+
+    .quick {
+        background-color: #99ccff; /* Light blue */
+    }
+</style>
 </html>
 
 {% endblock %}
