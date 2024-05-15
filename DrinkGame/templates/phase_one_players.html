@@ -1,24 +1,15 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'styles/phase_one.css' %}">
-</head>
-
-<div class="landing-page">
-    <h2>Welcome to My Drinking Game!</h2>
+<div id="phase1">
+    <h2>Welcome</h2>
     <p>How many players?</p>
     <div>
-        <button id="decrement">-</button>
+        <button class="up-down" id="decrement">-</button>
         <input type="number" id="numberInput" value="2" min="2" max="15">
-        <button id="increment">+</button>
+        <button class="up-down" id="increment">+</button>
     </div>
-    <button id="phase_two"><a href="{% url 'phase_two' %}">Continue</a></button>
+    <button id="POne"><a href="{% url 'phase_two' %}">Continue</a></button>
 </div>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -51,4 +42,71 @@
         }
     });
 </script>
+<style>
+    #phase1 {
+        background-color: #ef34d6;
+        padding: 50px;
+        text-align: center;
+    }
+    h2 {
+        font-family: Impact;
+        transition: transform 1s ease;
+        font-size: 90px;
+    }
+    h2:hover {
+        color: rgb(233, 245, 255);
+        transform: rotate(360deg);
+    }
+
+    p{
+        font-size: 40px;
+    }
+    .up-down {
+        width: 60px;
+        height: 60px;
+        transition: transform 0.8s ease;
+        border: none;
+    }
+    .up-down:hover {
+        transform: scale(1.3);
+    }
+    #numberInput {
+        width: 130px;
+        height: 60px;
+        text-align: center;
+        margin: 20px;
+        font-size: 20px;
+        font-family: sans-serif;
+    }
+    #POne {
+        margin-top: 180px;
+        width: 1000px;
+        height: 100px;
+        border-radius: 30px;
+        border: none;
+        transition: 1s ease;
+    }
+    #POne {
+        width: 500px;
+        height: 100px;
+        border-radius: 30px;
+        border: none;
+        transition: 1s ease;
+    }
+    #POne:hover {
+        width: 600px;
+        height: 150px;
+    }
+    #increment {
+        background-color: #99ccff;
+    }
+    #decrement {
+        background-color: #ff9999;
+    }
+    #POne a {
+        font-size: 50px;
+        color: #ef34d6;
+        transition: 1s ease;
+    }
+</style>
 {% endblock %}
