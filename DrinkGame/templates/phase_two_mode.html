@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/phase_two.css' %}">
+</head>
+<body>
+    <div class="container">
+        <div class="box classic">
+            Classic
+        </div>
+        <div class="box quick">
+            Quick
+        </div>
+    </div>
+    <button id="step1"><a href="{% url 'phase_three' %}">Continue</a></button>
+
+</body>
+</html>
+
+{% endblock %}
+

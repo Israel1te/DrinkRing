@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/phase_one.css' %}">
+</head>
+
+<div class="landing-page">
+    <h2>Welcome to My Drinking Game!</h2>
+    <p>How many players?</p>
+    <div>
+        <button id="decrement">-</button>
+        <input type="number" id="numberInput" value="2" min="2" max="15">
+        <button id="increment">+</button>
+    </div>
+    <button id="phase_two"><a href="{% url 'phase_two' %}">Continue</a></button>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var numberInput = document.getElementById('numberInput');
+        var incrementButton = document.getElementById('increment');
+        var decrementButton = document.getElementById('decrement');
+
+        incrementButton.addEventListener('click', function() {
+            incrementValue();
+        });
+
+        decrementButton.addEventListener('click', function() {
+            decrementValue();
+        });
+
+        function incrementValue() {
+            var currentValue = parseInt(numberInput.value);
+
+            if (currentValue < parseInt(numberInput.max)) {
+                numberInput.value = currentValue + 1;
+            }
+        }
+
+        function decrementValue() {
+            var currentValue = parseInt(numberInput.value);
+
+            if (currentValue > parseInt(numberInput.min)) {
+                numberInput.value = currentValue - 1;
+            }
+        }
+    });
+</script>
+{% endblock %}

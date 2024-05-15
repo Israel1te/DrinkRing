@@ -1,10 +1,8 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<div class="landing-page">
-    <h2>Welcome to My Drinking Game!</h2>
-    <p>How many players?</p>
-    <input type="number" id="num-players" placeholder="Enter number of players">
-    <button id="start-btn">Start / Continue</button>
-</div>
+    <div id="phase0" class="phase">
+        <h1>D-Rink</h1>
+        <button id="step1"><a href="{% url 'phase_one' %}">Continue</a></button>
+    </div>
 {% endblock %}

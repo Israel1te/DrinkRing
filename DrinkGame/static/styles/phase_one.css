@@ -6,3 +6,8 @@ body {
     padding: 50px;
     text-align: center;
 }
+
+/* Show only the currently active step */
+.active {
+    display: block;
+}
