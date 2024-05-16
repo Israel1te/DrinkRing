@@ -1,45 +1,88 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'styles/phase_two.css' %}">
-</head>
-<body>
-    <div class="container">
-        <div class="box classic">
-            Classic
-        </div>
-        <div class="box quick">
-            Quick
+<div class="container">
+    <div class="box classic">
+        <p id="mode-label">Classic</p> <br>
+        <div class="info">
+            <ul>
+                <li>Players take turn rolling a die each round</li>
+                <li>You move forward the amount the dice throws</li>
+                <li>Players can gain points by doing the dares on the card they land on or Drink</li>
+                <li>The game ends when one player reaches the end</li>
+                <li>The player with the most points wins</li>
+            </ul>
         </div>
     </div>
-    <button id="step1"><a href="{% url 'phase_three' %}">Continue</a></button>
-</body>
+    <div class="box quick">
+        <p id="mode-label">Quick</p> <br>
+        <div class="info">
+            <ul>
+                <li>Players take turn doing the dares on the cards</li>
+                <li>Each card is worth a different amount of points</li>
+                <li>Player has to Do the dare to gain points, or Drink</li>
+                <li>The game ends after 15 rounds</li>
+                <li>The player with the most points wins</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- <button id="step1"><a href="{% url 'phase_three' %}">Continue</a></button> -->
 <style>
     .container {
         display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px;
+        transition: transform 2s ease;
+        width: 95%;
+        height: 95%;
     }
 
     .box {
-        width: 50%;
-        height: 200px;
+        width: 700px;
+        height: 500px;
         display: flex;
         justify-content: center;
         align-items: center;
+        flex-direction: column;
         font-size: 24px;
+        margin: 10px;
+        transition: transform 2s ease;
+
     }
 
+    #mode-label {
+        font-size: 60px;
+    }
     .classic {
-        background-color: #ff9999; /* Light red */
+        background-color: #ff9999;
     }
 
     .quick {
-        background-color: #99ccff; /* Light blue */
+        background-color: #99ccff;
+    }
+
+    .info {
+        display: none; 
+        background-color: rgba(255, 255, 255, 0.8);
+        padding: 20px;
+        box-sizing: border-box;
+        transition: transform 1s ease;
+    }
+    .box:hover .info {
+        display: block;
+        cursor: pointer;
+    }
+    .box:hover p {
+        display: none;
+        transform: scale(0.5);
+    }
+
+    main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 </style>
 </html>
