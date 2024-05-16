@@ -10,6 +10,7 @@
         <button class="up-down" id="increment">+</button>
     </div>
     <button id="POne"><a href="{% url 'phase_two' %}">Continue</a></button>
+    <button id="back-btn"><a href="{% url 'landing_page' %}"><img id="bck-btn" src="../static/images/return-button-png-31.png" alt="Back to previous page"></a></button>
 </div>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -107,6 +108,17 @@
         font-size: 50px;
         color: #ef34d6;
         transition: 1s ease;
+    }
+    #back-btn {
+       background: none;
+       border: none;
+    }
+    #bck-btn {
+        width: 150px;
+        height: 150px;
+        bottom: 20px;
+        left: 20px;
+        position: absolute;
     }
 </style>
 {% endblock %}
