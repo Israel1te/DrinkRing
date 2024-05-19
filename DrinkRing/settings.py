@@ -76,8 +76,12 @@ WSGI_APPLICATION = 'DrinkRing.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dejsmcdcte08u9',
+        'USER': 'wlzlvcffnjycdr',
+        'PASSWORD' : '11077641035a5b5fb5a429893cc5fd2a9c06b99bce7025b38b6ebdb9262733d0',
+        'HOST' : 'ec2-44-215-176-210.compute-1.amazonaws.com',
+        'PORT' : '5432'
     }
 }
 
@@ -122,3 +126,7 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+LOGIN_REDIRECT_URL = "/"
+LOGOUT_REDIRECT_URL = "/login"
+
