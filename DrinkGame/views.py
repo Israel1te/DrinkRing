@@ -6,6 +6,8 @@ from .models import Card
 
 def add_players(request):
     session = Session.objects.filter(user=request.user).first()
+    #deleting all existing players
+    session.players.all().delete()
     player_range = range(1, session.num_players + 1)
     players = session.players.all()
     if request.method == 'POST':
