@@ -8,7 +8,7 @@
     <form method="post" action="{% url 'phase_one' %}">
         {% csrf_token %}
         <input placeholder="Enter Player Count" type="number" id="num_players" name="num_players" value="{{ session.num_players }}"> <br>
-        <button type="submit id="POne">Continue</button>
+        <button type="submit" id="POne">Continue</button>
     </form>
     
     <button id="back-btn"><a href="{% url 'landing_page' %}"><img id="bck-btn" src="../static/images/return-button-png-31.png" alt="Back to previous page"></a></button>

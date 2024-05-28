@@ -1,25 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
 <!DOCTYPE html>
 <html>
 <head>
     <title>Add Players</title>
 </head>
 <body>
-    <h1>Add Players</h1>
-    <form method="post" action="{% url 'add_players' %}">
-        {% csrf_token %}
-        <h2>Player Names</h2>
-        {% for i in player_range %}
-            <label for="player_{{ i }}">Player {{ i }} Name:</label>
-            <input type="text" id="player_{{ i }}" name="player_{{ i }}"><br>
-        {% endfor %}
-        <button type="submit">Save Player Names</button>
-    </form>
-
-    <h2>Previous Game</h2>
-    <ul>
-        {% for player in players %}
-            <li>{{ player.name }} - {{ player.points }} points</li>
-        {% endfor %}
-    </ul>
+    <div class="player-names">
+        <h1 style="font-size: 50px;">ADD PLAYERS</h1>
+        <form method="post" action="{% url 'add_players' %}">
+            {% csrf_token %}
+            {% for i in player_range %}
+                <div class="one-player">
+                    <input required placeholder="Player {{ i }}" type="text" id="player_{{ i }}" class="add-player-input" name="player_{{ i }}"><br>
+                </div>
+            {% endfor %}
+            <button type="submit" class="save-btn">Save</button>
+        </form>
+    </div>
 </body>
 </html>
+
+<style>
+    .player-names{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .one-player {
+        margin: 25px;
+    }
+    .add-player-input {
+        height: 20px;
+        padding: 10px;
+        text-align: center;
+        border: none;
+        border-radius: 10px;
+        font-size: 19px;
+    }
+    form {
+        text-align: center;
+    }
+    .save-btn{
+        border: none;
+        border-radius: 10px;
+        background-color: rgb(172, 247, 132);
+        font-size: 20px;
+        padding: 15px;
+        width: 230px;
+        bottom: 50px;
+        right: 50px;
+        position: fixed;
+    }
+
+</style>
+{% endblock %}
