@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="game-container-top">
+    <div class="player-list">
+        {% for player in players %}
+            <div class="one-player">
+                <img class="user-icon" src="../static/images/profile-icon-9.png" alt="user-icon">
+                <p class="name-points">{{ player.name }} <br> {{ player.points }} pts</p>
+            </div>
+        {% endfor %}
+    </div>
+    <div class="card-display">
+
+    </div>
+</div>
+
+<style>
+    .one-player {
+        display: flex;
+        flex-direction: row;
+        margin: 15px;
+    }
+    .user-icon {
+        height: 50px;
+        margin-right: 10px;
+    }
+    .name-points {
+        font-size: 20px;
+        margin: 0px 0px 0px 10px;
+        padding: 0px;
+    }
+</style>
+{% endblock %}

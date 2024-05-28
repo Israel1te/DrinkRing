@@ -2,29 +2,33 @@
 
 {% block content %}
 <div class="container">
-    <div class="box classic">
-        <p id="mode-label">Classic</p> <br>
-        <div class="info">
-            <ul>
-                <li>Players take turn rolling a die each round</li>
-                <li>You move forward the amount the dice throws</li>
-                <li>Players gain points by doing the dares on the card</li>
-                <li>The game ends when one player reaches the end</li>
-                <li>The player with the most points wins</li>
-            </ul>
-        </div>
+    <div>
+        <a href="{% url 'phase_three_quick' %}" class="box classic">
+            <p id="mode-label">Classic</p> <br>
+            <div class="info">
+                <ul>
+                    <li>Players take turn rolling a die each round</li>
+                    <li>You move forward the amount the dice throws</li>
+                    <li>Players gain points by doing the dares on the card</li>
+                    <li>The game ends when one player reaches the end</li>
+                    <li>The player with the most points wins</li>
+                </ul>
+            </div>
+        </a> 
     </div>
-    <div class="box quick">
-        <p id="mode-label">Quick</p> <br>
-        <div class="info">
-            <ul>
-                <li>Players take turn doing the dares on the cards</li>
-                <li>Each card is worth a different amount of points</li>
-                <li>Player has to Do the dare to gain points, or Drink</li>
-                <li>The game ends after 15 rounds</li>
-                <li>The player with the most points wins</li>
-            </ul>
-        </div>
+    <div>
+        <a href="{% url 'phase_three_quick' %}" class="box quick">
+            <p id="mode-label">Quick</p> <br>
+            <div class="info">
+                <ul>
+                    <li>Players take turn doing the dares on the cards</li>
+                    <li>Each card is worth a different amount of points</li>
+                    <li>Player has to Do the dare to gain points, or Drink</li>
+                    <li>The game ends after 15 rounds</li>
+                    <li>The player with the most points wins</li>
+                </ul>
+            </div>
+        </a>
     </div>
 </div>
 <button id="back-btn"><a href="{% url 'phase_one' %}"><img id="bck-btn" src="../static/images/return-button-png-31.png" alt="Back to previous page"></a></button>
