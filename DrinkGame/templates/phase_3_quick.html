@@ -2,20 +2,41 @@
 
 {% block content %}
 <div class="game-container-top">
-    <div class="player-list">
-        {% for player in players %}
-            <div class="one-player">
-                <img class="user-icon" src="../static/images/profile-icon-9.png" alt="user-icon">
-                <p class="name-points">{{ player.name }} <br> {{ player.points }} pts</p>
-            </div>
-        {% endfor %}
+    <div class="left-features">
+         <div class="player-list">
+            {% for player in players %}
+                <div class="one-player">
+                    <img class="user-icon" src="../static/images/profile-icon-9.png" alt="user-icon">
+                    <p class="name-points">{{ player.name }} <br> {{ player.points }} pts</p>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="player-turn">
+            <p>current player : -- </p>
+        </div>
     </div>
-    <div class="card-display">
-
+    <div class="right-features">
+        <div class="card-display">
+            <div class="card-content">This is where the dares will appear</div>
+        </div>
+        <div class="control-buttons">
+            <button class="dare-failed">x</button>
+            <button class="dare-complete">v</button>
+        </div>
     </div>
 </div>
 
 <style>
+    .left-features{
+        width: 25%;
+        padding: 20px;
+        margin: 20px;
+    }
+    .right-features{
+        width: 70%;
+        padding: 20px;
+        margin: 20px;
+    }
     .one-player {
         display: flex;
         flex-direction: row;
@@ -29,6 +50,53 @@
         font-size: 20px;
         margin: 0px 0px 0px 10px;
         padding: 0px;
+    }
+    .player-list {
+        background-color: rgb(217, 217, 229);
+        padding: 20px;
+        border-radius: 10px;
+        width: 90%;
+        overflow: scroll;
+        scrollbar-width: thin;
+        margin-left: 30px;
+        margin-right: 45px;
+    }
+    .player-turn {
+        background-color: rgb(217, 217, 229);
+        padding: 20px;
+        border-radius: 10px;
+        width: 90%;
+        margin-left: 30px;
+        margin-right: 45px;
+        position: fixed;
+        bottom: 20px;
+    }
+    .card-display {
+        background-color: rgb(217, 217, 229);
+        padding: 20px;
+        border-radius: 10px;
+        width: 80%;
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        min-height: 600px;
+    }
+    .card-content {
+        text-align: center;
+        padding: none;
+        margin: 0 auto;
+        height: 10px;
+    }
+    .control-buttons {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 80%;
+        padding: 20px;
+    }
+    .game-container-top {
+        display: flex;
+        flex-direction: row;
     }
 </style>
 {% endblock %}
