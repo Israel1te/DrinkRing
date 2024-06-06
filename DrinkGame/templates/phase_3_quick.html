@@ -17,14 +17,31 @@
     </div>
     <div class="right-features">
         <div class="card-display">
-            <div class="card-content">This is where the dares will appear</div>
+            <p id="#card-body"  class="card-content">This is where the dares will appear</p>
         </div>
         <div class="control-buttons">
-            <button class="dare-failed">x</button>
-            <button class="dare-complete">v</button>
+            <button id="next-card-btn" class="dare-failed">x</button>
+            <button id="next-card-btn" class="dare-complete">v</button>
         </div>
     </div>
 </div>
+
+<script>
+    function fetchNextCard() {
+        $.getJSON(`/cards/get/`, function(data) {
+            console.log(data);
+            $('#card-body').text(data.body);
+        });
+    }
+
+    $(document).ready(function() {
+        fetchNextCard();  // Fetch the first card on page load
+
+        $('#next-card-btn').on('click', function() {
+            fetchNextCard();
+        });
+    });
+</script>
 
 <style>
     .left-features{

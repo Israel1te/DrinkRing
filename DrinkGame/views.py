@@ -3,6 +3,8 @@ from .models import Session, Player
 from .forms import SessionForm, PlayerFormSet
 from django.contrib.auth.decorators import login_required
 from .models import Card
+from django.http import JsonResponse
+import random
 
 def add_players(request):
     session = Session.objects.filter(user=request.user).first()
@@ -63,4 +65,30 @@ def phase_three_quick(request):
     players = session.players.all()
     template_name = 'phase_3_quick.html'
     return render(request, template_name, {'cards':cards, 'session': session, 'players': players})
+
+def card_view(request):
+    card_bodies = list(Card.objects.values_list('body', flat=True))
+    random.shuffle(card_bodies)
+    request.session['cards'] = card_bodies
+    request.session['index'] = 0
+    return render(request, 'game/card.html')
+
+def get_card(request):
+    if 'cards' not in request.session or 'index' not in request.session:
+        card_bodies = list(Card.objects.values_list('body', flat=True))
+        random.shuffle(card_bodies)
+        request.session['cards'] = card_bodies
+        index = 0
+    else:
+        card_bodies = request.session['cards']
+        index = request.session['index']
+        
+        if index >= len(card_bodies):
+            random.shuffle(card_bodies)
+            request.session['cards'] = card_bodies
+            index = 0
+
+    card_body = card_bodies[index]
+    request.session['index'] = index + 1
+    return JsonResponse({'body': card_body, 'index': request.session['index']})
 
